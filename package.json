@@ -1,0 +1,36 @@
+{
+  "name": "ad2black-cli",
+  "version": "1.0.0",
+  "description": "Replace ads on given image with black pixels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a13ks3y/ad2black-cli.git"
+  },
+  "keywords": [
+    "ads",
+    "ad",
+    "adblock",
+    "image",
+    "images",
+    "converter",
+    "replace",
+    "ads"
+  ],
+  "author": "a13ks3y.ass@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a13ks3y/ad2black-cli/issues"
+  },
+  "homepage": "https://github.com/a13ks3y/ad2black-cli#readme",
+  "devDependencies": {
+    "base-64": "^0.1.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0"
+  }
+}

@@ -1,0 +1,1 @@
+global.convert = require('./index').convert;
