@@ -1,4 +1,6 @@
 "use strict";
+const yargs = require('yargs');
+const fs = require('fs');
 const pi = require('pureimage');
 /**
  * Remove given array of rectangles with white color in given image (return a copy);
@@ -21,5 +23,18 @@ const convert = (imgToConvert, adRects) => {
         throw new Error('Expected 2 parameters (The first is arrays of bytes, and the second is the array of objects)');
     }
 };
+
+if (yargs.argv._ && yargs.argv._[0] && yargs.argv._[0].length && !yargs.argv._[0].match(/.*\.js$/)) {
+    const imgToConvertFilePath = yargs.argv._[0];
+    const adRects = yargs.argv.r instanceof Array ? yargs.argv.r : [yargs.argv.r];
+    console.log('Reading the file', imgToConvertFilePath);
+    pi.decodePNGFromStream(fs.createReadStream(imgToConvertFilePath)).then((imgToConvert) => {
+        const result = convert(imgToConvert, adRects.map( rect => Function(`return ${rect}`)()));
+        pi.encodePNGToStream(result, fs.createWriteStream('result.png')).then(() => {
+            console.log('Success! Please see result.png');
+        });
+    });
+
+}
 
 if (typeof module !== 'undefined') module.exports = convert;

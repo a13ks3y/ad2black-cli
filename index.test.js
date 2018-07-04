@@ -19,7 +19,6 @@ describe('Index', () => {
     });
     it('Should return an image with white square instead of given image', (done) => {
         pi.decodePNGFromStream(fs.createReadStream('test-data/img-to-convert.png')).then((imgToConvert) => {
-            console.log('imgToConvert', imgToConvert.width, imgToConvert.height);
             const result = convert(imgToConvert, [{
                 x: 1662,
                 y: 786,
@@ -39,7 +38,6 @@ describe('Index', () => {
                         const diffPixelsCount = pixelmatch(imgResultPngStream.data, imgTmpPngStream.data, diff.data, imgResultPngStream.width, imgResultPngStream.height, {threshold: 0.85});
                         assert(diffPixelsCount === 0, 'Difference should be 0!');
                         diff.pack().pipe(fs.createWriteStream('test-data/diff.png'));
-                        console.log('done!');
                         done();
                     }
                 });
