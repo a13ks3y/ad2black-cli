@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/a13ks3y/ad2black-cli#readme",
   "devDependencies": {
+    "get-pixels": "^3.3.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
